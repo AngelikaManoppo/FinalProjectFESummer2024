@@ -10,30 +10,30 @@ const Profile = () => {
 
   useEffect(() => {
     const db = getDatabase();
-    const profile1Ref = ref(db, "profile/1");
+    const profile1Ref = ref(db, "profile1/");
     onValue(profile1Ref, (snapshot) => {
       const data = snapshot.val();
       setprofile1(data);
     });
-    const profile2Ref = ref(db, "profile/2");
+    const profile2Ref = ref(db, "profile2/");
     onValue(profile2Ref, (snapshot) => {
       const data = snapshot.val();
       setprofile2(data);
     });
 
-    const profile3Ref = ref(db, "profile/3");
+    const profile3Ref = ref(db, "profile3/");
     onValue(profile3Ref, (snapshot) => {
       const data = snapshot.val();
       setprofile3(data);
     });
 
-    const profilebtn1Ref = ref(db, "profilebtn/1");
+    const profilebtn1Ref = ref(db, "profilebtn1/");
     onValue(profilebtn1Ref, (snapshot) => {
       const data = snapshot.val();
       setprofilebtn1(data);
     });
 
-    const profilebtn2Ref = ref(db, "profilebtn/2");
+    const profilebtn2Ref = ref(db, "profilebtn2/");
     onValue(profilebtn2Ref, (snapshot) => {
       const data = snapshot.val();
       setprofilebtn2(data);
@@ -46,9 +46,9 @@ const Profile = () => {
       <img src="./images/AngelikaFin.jpg" alt="John Doe profile picture" />
     </div>
     <div className="section__text">
-      <p className="section__text__p1"> {profile1}</p>
-      <h1 className="title">{profile2}</h1>
-      <p className="section__text__p2">{profile3}</p>
+      <p className="section__text__p1"> {profile1} </p>
+      <h1 className="title"> {profile2} </h1>
+      <p className="section__text__p2"> {profile3} </p>
       <div className="btn-container">
         <button className="btn btn-color-2" onclick="window.open('./images/resumeForFinal.pdf')">
           {profilebtn1}
