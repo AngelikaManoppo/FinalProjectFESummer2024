@@ -1,6 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 
-function Experience() {
+const Experience = () => {
+  const [hardskills, sethardskills] = useState("");
+  const [softskills, setsoftskills] = useState("");
+
+  useEffect(() => {
+    const db = getDatabase();
+    const hardskillsRef = ref(db, "hardskills/");
+    onValue(hardskillsRef, (snapshot) => {
+      const data = snapshot.val();
+      sethardskills(data);
+    });
+    const softskillsRef = ref(db, "softskills/");
+    onValue(softskillsRef, (snapshot) => {
+      const data = snapshot.val();
+      setsoftskills(data);
+    });
+  }, []);
+
   return (
     <section id="experience">
     <p className="section__text__p1">Explore My</p>
@@ -13,43 +31,43 @@ function Experience() {
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
-                <h3>HTML</h3>
-                <p>Experienced</p>
+                <h3> {hardskills.h1} </h3>
+                <p> {hardskills.Exp.hE} </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
-                <h3>JavaScript</h3>
-                <p>Experienced</p>
+                <h3> {hardskills.h2} </h3>
+                <p> {hardskills.Exp.hE} </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
-                <h3>CSS</h3>
-                <p>Experienced</p>
+                <h3> {hardskills.h3} </h3>
+                <p> {hardskills.Exp.hE} </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
-                <h3>Python</h3>
-                <p>Intermediate</p>
+                <h3> {hardskills.h4} </h3>
+                <p> {hardskills.Exp.hI} </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
-                <h3>C#(Sharp)</h3>
-                <p>Basic</p>
+                <h3> {hardskills.h5} </h3>
+                <p> {hardskills.Exp.hB} </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
-                <h3>Other Tools <br /> (Canva, Figma etc.)</h3>
-                <p>Basic</p>
+                <h3> {hardskills.h6} </h3>
+                <p> {hardskills.Exp.hB} </p>
               </div>
             </article>
           </div>
@@ -60,29 +78,29 @@ function Experience() {
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
-                <h3>Working On Team</h3>
-                <p>Experienced</p>
+                <h3> {softskills.s1} </h3>
+                <p> {hardskills.Exp.hE} </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
-                <h3>Presentaion</h3>
-                <p>Experienced</p>
+                <h3> {softskills.s2} </h3>
+                <p> {hardskills.Exp.hE} </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
-                <h3>Communi- <br /> cation</h3>
-                <p>Intermediate</p>
+                <h3> {softskills.s3} </h3>
+                <p> {hardskills.Exp.hI} </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
-                <h3>Problem Solving</h3>
-                <p>Experienced</p>
+                <h3> {softskills.s4} </h3>
+                <p> {hardskills.Exp.hE} </p>
               </div>
             </article>
           </div>

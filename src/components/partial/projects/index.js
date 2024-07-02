@@ -1,6 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 
-function Projects() {
+const Projects = () => {
+  const [project1, setproject1] = useState("");
+  const [project2, setproject2] = useState("");
+  const [project3, setproject3] = useState("");
+
+  useEffect(() => {
+    const db = getDatabase();
+    const project1Ref = ref(db, "project1/");
+    onValue(project1Ref, (snapshot) => {
+      const data = snapshot.val();
+      setproject1(data);
+    });
+    const project2Ref = ref(db, "project2/");
+    onValue(project2Ref, (snapshot) => {
+      const data = snapshot.val();
+      setproject2(data);
+    });
+
+    const project3Ref = ref(db, "project3/");
+    onValue(project3Ref, (snapshot) => {
+      const data = snapshot.val();
+      setproject3(data);
+    });
+  }, []);
+
   return (
     <section id="projects">
     <p className="section__text__p1">View My Recent</p>
@@ -11,7 +36,7 @@ function Projects() {
           <div className="article-container">
             <img src="./images/vispro.jpg" alt="Project 1" className="project-img" />
           </div>
-          <h2 className="experience-sub-title project-title">Visual Programming Class</h2>
+          <h2 className="experience-sub-title project-title"> {project1} </h2>
           <div className="btn-container">
             <button className="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
               Github
@@ -25,7 +50,7 @@ function Projects() {
           <div className="article-container">
             <img src="./images/webdes.jpg" alt="Project 2" className="project-img" />
           </div>
-          <h2 className="experience-sub-title project-title">Web Design Class</h2>
+          <h2 className="experience-sub-title project-title"> {project2} </h2>
           <div className="btn-container">
             <button className="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
               Github
@@ -39,7 +64,7 @@ function Projects() {
           <div className="article-container">
             <img src="./images/hci.jpg" alt="Project 3" className="project-img" />
           </div>
-          <h2 className="experience-sub-title project-title">Human & Computers Interaction Class</h2>
+          <h2 className="experience-sub-title project-title"> {project3} </h2>
           <div className="btn-container">
             <button className="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
               Github

@@ -1,6 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 
-function About() {
+const About = () => {
+  const [personalInfo, setpersonalInfo] = useState({});
+  const [education, seteducation] = useState("");
+  const [introduction, setintroduction] = useState("");
+
+  useEffect(() => {
+    const db = getDatabase();
+    const personalInfoRef = ref(db, "personalInfo/");
+    onValue(personalInfoRef, (snapshot) => {
+      const data = snapshot.val();
+      setpersonalInfo(data);
+    });
+    const educationRef = ref(db, "education/");
+    onValue(educationRef, (snapshot) => {
+      const data = snapshot.val();
+      seteducation(data);
+    });
+
+    const introductionRef = ref(db, "introduction/");
+    onValue(introductionRef, (snapshot) => {
+      const data = snapshot.val();
+      setintroduction(data);
+    });
+  }, []);
+
   return (
     <section id="about">
     <p className="section__text__p1">Get To Know More</p>
@@ -14,18 +39,17 @@ function About() {
           <div className="details-container">
             <img src="./images/education.png" alt="Experience icon" className="icon" />
             <h3>Personal Info</h3>
-            <p> Date of Birth : August 02, 2004 <br /> Place of Birth : Bitung  <br /> Gender : Female <br /> Address : Girian Weru Dua </p>
+            <p> Date of Birth : {personalInfo.DateOfBirth} <br /> Place of Birth : {personalInfo.PlaceOfBirth} <br /> Gender : {personalInfo.Gender} <br /> Address : {personalInfo.Address} </p>
           </div>
           <div className="details-container">
             <img src="./images/experience.png" alt="Experience icon" className="icon" />
             <h3>Education</h3>
-            <p>Since 2022 - Now <br /> Student at Klabat University</p>
+            <p> {education} </p>
           </div>
         </div>
         <div className="text-container">
           <p>
-            Hi there! I'm a passionate second year student at Klabat University with a strong will in learning new things. 
-            My main interest lies in engaging with modern technologies such as computers.
+            {introduction}
           </p>
         </div>
       </div>
@@ -35,4 +59,4 @@ function About() {
   )
 }
 
-export default About
+export default About;
