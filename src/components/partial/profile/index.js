@@ -1,4 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+
+const profile = () => {
+  const [profile1, setprofile1] = useState("");
+  const [profile2, setprofile2] = useState("");
+  const [profile3, setprofile3] = useState("");
+
+  useEffect(() => {
+    const db = getDatabase();
+    const profile1Ref = ref(db, "profile/1");
+    onValue(profile1Ref, (snapshot) => {
+      const data = snapshot.val();
+      setprofile1(data);
+    });
+    const profile2Ref = ref(db, "profile/2");
+    onValue(profile2Ref, (snapshot) => {
+      const data = snapshot.val();
+      setprofile2(data);
+    });
+
+    const profile3Ref = ref(db, "profile/3");
+    onValue(profile3Ref, (snapshot) => {
+      const data = snapshot.val();
+      setprofile3(data);
+      // setHeroSubTitle(data);
+    });
+  }, []);
 
 function Profile() {
   return (
@@ -7,9 +34,9 @@ function Profile() {
       <img src="./images/AngelikaFin.jpg" alt="John Doe profile picture" />
     </div>
     <div className="section__text">
-      <p className="section__text__p1">Hello, I'm</p>
-      <h1 className="title">Angelika Farah Manoppo</h1>
-      <p className="section__text__p2">Student at Klabat University</p>
+      <p className="section__text__p1"> {profile1}</p>
+      <h1 className="title">{profile2}</h1>
+      <p className="section__text__p2">{profile3}</p>
       <div className="btn-container">
         <button className="btn btn-color-2" onclick="window.open('./images/resumeForFinal.pdf')">
           Download CV
