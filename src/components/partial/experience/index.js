@@ -32,42 +32,42 @@ const Experience = () => {
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
                 <h3> {hardskills.h1} </h3>
-                <p> {hardskills.Exp.hE} </p>
+                <p> Experienced </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
                 <h3> {hardskills.h2} </h3>
-                <p> {hardskills.Exp.hE} </p>
+                <p> Experienced </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
                 <h3> {hardskills.h3} </h3>
-                <p> {hardskills.Exp.hE} </p>
+                <p> Experienced </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
                 <h3> {hardskills.h4} </h3>
-                <p> {hardskills.Exp.hI} </p>
+                <p> Experienced </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
                 <h3> {hardskills.h5} </h3>
-                <p> {hardskills.Exp.hB} </p>
+                <p> Basic </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
                 <h3> {hardskills.h6} </h3>
-                <p> {hardskills.Exp.hB} </p>
+                <p> Experienced </p>
               </div>
             </article>
           </div>
@@ -79,28 +79,28 @@ const Experience = () => {
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
                 <h3> {softskills.s1} </h3>
-                <p> {hardskills.Exp.hE} </p>
+                <p> Experienced </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
                 <h3> {softskills.s2} </h3>
-                <p> {hardskills.Exp.hE} </p>
+                <p> Experienced </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
                 <h3> {softskills.s3} </h3>
-                <p> {hardskills.Exp.hI} </p>
+                <p> Experienced </p>
               </div>
             </article>
             <article>
               <img src="./images/checkmark.png" alt="Experience icon" className="icon" />
               <div>
                 <h3> {softskills.s4} </h3>
-                <p> {hardskills.Exp.hE} </p>
+                <p> Experienced </p>
               </div>
             </article>
           </div>
